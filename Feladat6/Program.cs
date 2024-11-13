@@ -69,7 +69,7 @@ class Program
         PreorderTraversal(root);
         Console.WriteLine("\n");
 
-        Console.WriteLine("Inorder traversal of the binary tree:");
+        Console.WriteLine("Inorder bejárás:");
         InorderTraversal(root);
         Console.WriteLine("\n");
 
