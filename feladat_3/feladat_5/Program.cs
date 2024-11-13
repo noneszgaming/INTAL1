@@ -1,22 +1,22 @@
 ﻿using System;
 
-public class Node
+public class pointer
 {
     public int Data;
-    public Node Next;
+    public pointer Next;
 
-    public Node(int data)
+    public pointer(int data)
     {
         Data = data;
         Next = null;
     }
 }
 
-public class LinkedList
+public class lancolt_lista
 {
-    private Node head;
+    private pointer head;
 
-    public LinkedList()
+    public lancolt_lista()
     {
         head = null;
     }
@@ -24,14 +24,14 @@ public class LinkedList
     // Create (Add) operation
     public void Add(int data)
     {
-        Node newNode = new Node(data);
+        pointer newNode = new pointer(data);
         if (head == null)
         {
             head = newNode;
         }
         else
         {
-            Node current = head;
+            pointer current = head;
             while (current.Next != null)
             {
                 current = current.Next;
@@ -43,7 +43,7 @@ public class LinkedList
     // Read (Print) operation
     public void PrintList()
     {
-        Node current = head;
+        pointer current = head;
         while (current != null)
         {
             Console.Write(current.Data + " ");
@@ -55,7 +55,7 @@ public class LinkedList
     // Update operation
     public bool Update(int oldData, int newData)
     {
-        Node current = head;
+        pointer current = head;
         while (current != null)
         {
             if (current.Data == oldData)
@@ -82,7 +82,7 @@ public class LinkedList
             return true;
         }
 
-        Node current = head;
+        pointer current = head;
         while (current.Next != null)
         {
             if (current.Next.Data == data)
@@ -100,7 +100,7 @@ class Program
 {
     static void Main()
     {
-        LinkedList list = new LinkedList();
+        lancolt_lista list = new lancolt_lista();
         list.Add(1);
         list.Add(2);
         list.Add(3);
