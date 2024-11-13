@@ -10,7 +10,7 @@ namespace PeldaHelloWorld
             int bek = Convert.ToInt32(Console.ReadLine());
             int[] tomb = { 1, 2, 3, 4, 5, 6, 7};
             bool talalt = false;
-            for(int i = 0; i < 5; i++)
+            for(int i = 0; i < tomb.Length; i++)
             {
                 if (tomb[i] == bek)
                 {
