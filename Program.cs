@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace PeldaHelloWorld
 {
@@ -6,15 +6,21 @@ namespace PeldaHelloWorld
     {
         static void Main(string[] args)
         {
-            Console.Write("Írj be egy számot: ");
+            //feladat3();
+            feladat4();
+
+        }
+
+        static void feladat3()
+        {
+            Console.Write("Írj be egy szöveget: ");
             int bek = Convert.ToInt32(Console.ReadLine());
-            int[] tomb = { 1, 2, 3, 4, 5, 6, 7};
+            int[] tomb = { 1, 2, 3, 4, 5, 6, 7 };
             bool talalt = false;
-            for(int i = 0; i < tomb.Length; i++)
+            for (int i = 0; i < tomb.Length; i++)
             {
                 if (tomb[i] == bek)
                 {
-                    bek = tomb[i];
                     Console.Write("Megvan a(z)" + bek + " a(z) " + (i + 1) + ". volt");
                     talalt = true;
                     break;
@@ -24,7 +30,24 @@ namespace PeldaHelloWorld
             {
                 Console.Write("Nem találta meg a(z): " + bek);
             }
-
         }
+
+        static void feladat4()
+        {
+            Console.Write("Írj be a méretet: ");
+            int meret = Convert.ToInt32(Console.ReadLine());
+            int[] tomb = new int[meret];
+            for (int i = 0; i < meret; i++)
+            {
+                Console.Write("Írd be a értékeket: ");
+                tomb[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int[] hashTabla = new int[meret];
+            for (int i = 0; i < meret; i++)
+            {
+                hashTabla[tomb[i] % meret] = tomb[i];
+            }
+        }
+
     }
 }
