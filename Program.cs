@@ -18,7 +18,7 @@ namespace PeldaHelloWorld
                     Console.Write("Megvan a(z)" + bek + " a(z) " + (i + 1) + ". volt");
                     talalt = true;
                     break;
-                }                Console.WriteLine(i);
+                }
             }
             if (!talalt)
             {
