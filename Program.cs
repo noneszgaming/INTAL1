@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 namespace PeldaHelloWorld
 {
@@ -6,9 +7,32 @@ namespace PeldaHelloWorld
     {
         static void Main(string[] args)
         {
+            //feladat1();
+            //feladat2();
             //feladat3();
-            feladat4();
+            //feladat4();
+            //feladat5();
 
+        }
+
+        static void feladat1()
+        {
+            char betu = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+            string szoveg = Console.ReadLine();
+
+            if (szoveg.Length > 0)
+            {
+                if (szoveg.Contains(betu))
+                {
+                    Console.WriteLine(szoveg.IndexOf(betu));
+                }
+            }
+        }
+
+        static void feladat2()
+        {
+                //elveszett
         }
 
         static void feladat3()
@@ -47,6 +71,15 @@ namespace PeldaHelloWorld
             {
                 hashTabla[tomb[i] % meret] = tomb[i];
             }
+        }
+        static void feladat5()
+        {
+            //class ListaElem(){public in adat; public ListaElem koviElem;}
+            //hozzaad();
+            //olvas();
+            //torles();
+            //frissites();
+            
         }
 
     }
