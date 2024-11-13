@@ -1,105 +1,107 @@
 ﻿using System;
 
 
-class Node
+class TreeNode
 {
-    public int Data;
-    public Node Left, Right;
+    public int Value;
+    public TreeNode Left;
+    public TreeNode Right;
 
-    public Node(int item)
+    public TreeNode(int value)
     {
-        Data = item;
-        Left = Right = null;
+        Value = value;
+        Left = null;
+        Right = null;
     }
 }
 
 class BinaryTree
 {
-    Node root;
+    public TreeNode Root;
 
-    public void BuildTreeFromList(List<int> dataList)
+    public BinaryTree(string structure)
     {
-        dataList.Sort();
-        root = BuildTree(dataList, 0, dataList.Count - 1);
+        int index = 0;
+        Root = BuildTree(structure, ref index);
     }
 
-    private Node BuildTree(List<int> dataList, int start, int end)
+    private TreeNode BuildTree(string structure, ref int index)
     {
-        if (start > end)
+        if (index >= structure.Length || structure[index] == ')')
+        {
             return null;
+        }
 
-        int mid = (start + end) / 2;
-        Node node = new Node(dataList[mid]);
+        int value = 0;
+        while (index < structure.Length && char.IsDigit(structure[index]))
+        {
+            value = value * 10 + (structure[index] - '0');
+            index++;
+        }
 
-        node.Left = BuildTree(dataList, start, mid - 1);
-        node.Right = BuildTree(dataList, mid + 1, end);
+        TreeNode node = new TreeNode(value);
+
+        if (index < structure.Length && structure[index] == '(')
+        {
+            index++; // Skip '('
+            node.Left = BuildTree(structure, ref index);
+            index++; // Skip ')'
+        }
+
+        if (index < structure.Length && structure[index] == '(')
+        {
+            index++; // Skip '('
+            node.Right = BuildTree(structure, ref index);
+            index++; // Skip ')'
+        }
 
         return node;
     }
 
-    void PreOrder(Node node)
+    public void PreOrderTraversal(TreeNode node)
     {
         if (node == null)
+        {
             return;
+        }
 
-        Console.Write(node.Data + " ");
-        PreOrder(node.Left);
-        PreOrder(node.Right);
+        Console.Write(node.Value + " ");
+        PreOrderTraversal(node.Left);
+        PreOrderTraversal(node.Right);
     }
 
-    void InOrder(Node node)
+    public void DisplayTree(TreeNode node, string indent = "", bool last = true)
     {
-        if (node == null)
-            return;
+        if (node != null)
+        {
+            Console.Write(indent);
+            if (last)
+            {
+                Console.Write("└─");
+                indent += "  ";
+            }
+            else
+            {
+                Console.Write("├─");
+                indent += "| ";
+            }
+            Console.WriteLine(node.Value);
 
-        InOrder(node.Left);
-        Console.Write(node.Data + " ");
-        InOrder(node.Right);
+            DisplayTree(node.Left, indent, false);
+            DisplayTree(node.Right, indent, true);
+        }
     }
+}
 
-    void PostOrder(Node node)
+class Program
+{
+    static void Main()
     {
-        if (node == null)
-            return;
-
-        PostOrder(node.Left);
-        PostOrder(node.Right);
-        Console.Write(node.Data + " ");
-    }
-
-    void PrintTree(Node node, int space = 0, int height = 10)
-    {
-        if (node == null)
-            return;
-
-        space += height;
-
-        PrintTree(node.Right, space);
-
+        string structure = "(1(8(4(13))(7))(11(6(2)(10))(3(9)))";
+        BinaryTree tree = new BinaryTree(structure);
+        tree.PreOrderTraversal(tree.Root);
         Console.WriteLine();
-        for (int i = height; i < space; i++)
-            Console.Write(" ");
-        Console.WriteLine(node.Data);
-
-        PrintTree(node.Left, space);
-    }
-
-    public static void Main(String[] args)
-    {
-        BinaryTree tree = new BinaryTree();
-        List<int> dataList = new List<int> { 1, 2, 3, 4, 5, 9, 15, 18, 19, 25, 48 };
-        tree.BuildTreeFromList(dataList);
-
-        Console.WriteLine("Preorder traversal:");
-        tree.PreOrder(tree.root);
-
-        Console.WriteLine("\nInorder traversal:");
-        tree.InOrder(tree.root);
-
-        Console.WriteLine("\nPostorder traversal:");
-        tree.PostOrder(tree.root);
-
-        Console.WriteLine("\nTree structure:");
-        tree.PrintTree(tree.root);
+        Console.WriteLine();
+        tree.DisplayTree(tree.Root);
     }
 }
