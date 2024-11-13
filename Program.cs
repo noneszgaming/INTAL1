@@ -6,7 +6,7 @@ namespace PeldaHelloWorld
     {
         static void Main(string[] args)
         {
-            Console.Write("Írj be egy szöveget: ");
+            Console.Write("Írj be egy számot: ");
             int bek = Convert.ToInt32(Console.ReadLine());
             int[] tomb = { 1, 2, 3, 4, 5, 6, 7};
             bool talalt = false;
