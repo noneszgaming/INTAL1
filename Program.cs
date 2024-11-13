@@ -1,8 +1,70 @@
 using System;
 using System.Collections;
+using System.ComponentModel.Design;
 
 namespace PeldaHelloWorld
 {
+    class Fa
+    {
+        int adat;
+        Fa jobb;
+        Fa bal;
+
+        Fa(int szam)
+        {
+            adat = szam;
+        }
+
+        void tolt(int szam)
+        {
+            bal = new Fa(szam);
+        }
+
+        void tolt(int szam1, int szam2)
+        {
+            tolt(szam1);
+            jobb = new Fa(szam2);
+        }
+
+        void bejarPRE()
+        {
+            if(bal != null)
+            {
+                Console.WriteLine(bal.adat);
+                bal.bejarPRE();
+            }
+            if (jobb != null)
+            {
+                Console.WriteLine(jobb.adat);
+                jobb.bejarPRE();
+            }
+        }
+
+        void bejarIN()
+        {
+            if (bal != null)
+            {
+                bal.bejarIN();
+            }
+            Console.WriteLine(adat);
+            if (jobb != null)
+            {
+                jobb.bejarIN();
+            }
+        }
+        void bejarPOST()
+        {
+            if(bal != null)
+            {
+                bal.bejarPOST();
+            }
+            if (jobb != null)
+            {
+                jobb.bejarPOST();
+            }
+            Console.WriteLine(adat);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -82,5 +144,10 @@ namespace PeldaHelloWorld
             
         }
 
+        static void fealdat6() 
+        {
+            //string tomb = "(1(8(4(13))(7))(11(6(2)(10))(3(9))))";
+            
+        }
     }
 }
