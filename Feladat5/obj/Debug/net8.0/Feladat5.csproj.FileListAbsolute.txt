@@ -1,0 +1,14 @@
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\bin\Debug\net8.0\Feladat5.exe
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\bin\Debug\net8.0\Feladat5.deps.json
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\bin\Debug\net8.0\Feladat5.runtimeconfig.json
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\bin\Debug\net8.0\Feladat5.dll
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\bin\Debug\net8.0\Feladat5.pdb
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.GeneratedMSBuildEditorConfig.editorconfig
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.AssemblyInfoInputs.cache
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.AssemblyInfo.cs
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.csproj.CoreCompileInputs.cache
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.dll
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\refint\Feladat5.dll
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.pdb
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\Feladat5.genruntimeconfig.cache
+C:\University\5_Szemeszter\Internetes_almkalmazasok_I\Projects\Intal1\Feladat5\obj\Debug\net8.0\ref\Feladat5.dll
