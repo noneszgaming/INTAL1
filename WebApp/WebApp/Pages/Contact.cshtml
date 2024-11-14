@@ -1,0 +1,14 @@
+﻿@page
+@model ContactModel
+
+<h2>Kapcsolatfelvétel</h2>
+
+<form method="post">
+	<label>Név :</label>
+	<input type="text" asp-for="Name" />
+	<label>Üzenet: </label>
+	<textarea asp-for="Message"></textarea>
+	<button type="submit">Küldés</button>
+</form>
+
+<p>@Model.ResponseMessage</p>
