@@ -6,4 +6,5 @@ public class CardViewModel
     // lila kártya számmal
     public bool isRevealed { get; set; }
     // fehér kártya számmal
+    public int value { get; set; }
 }

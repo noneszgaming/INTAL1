@@ -27,9 +27,10 @@
         <div class="max-w-6xl mx-auto px-4">
             <main class="py-6">
                 @RenderBody()
-                @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = false})
-                @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = false, isRevealed = true})
-                @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = true, isRevealed = true})
+                @await Component.InvokeAsync("Card", new {value= 1, isVoted = false, isSelected = false})
+                @await Component.InvokeAsync("Card", new {value= 1, isVoted = true, isSelected = false})
+                @await Component.InvokeAsync("Card", new {value= 5, isVoted = false, isSelected = false, isRevealed = true})
+                @await Component.InvokeAsync("Card", new {value= 3, isVoted = false, isSelected = true, isRevealed = true})
             </main>
         </div>
 
