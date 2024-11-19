@@ -16,7 +16,7 @@ namespace PlanningProject.Controllers
         public Jira(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            var byteArray = System.Text.Encoding.ASCII.GetBytes("planningproject2024@gmail.com:ATATT3xFfGF0SLCL4yoivp1vtRSjY17hW8oVmrb9O9V5K8-PwkDoSPk4Cp2nc9QY0gVKB2aHRQLAJDoqSGKVGK3JXpV22We5GkIVRAssE8dB5poklnaO9HA8wCeBDTKqVySW4CiZg7tQZvAROb-6UwI-78Gkkcf0Ww_BDHLwU5WbC-puYoAwz6M=D9321DFA");
+            var byteArray = System.Text.Encoding.ASCII.GetBytes("planningproject2024@gmail.com:ATATT3xFfGF0yaIyJjg2iRqBgzUiTGCgGPLgAgHAPFVRr3TymLyTZjzTHTcvVqJTh-evaAS2obEGpO8GS9tP_lcaTZUxS0nNPT-KsPhYChBclMLniJUvWPkq0WTs4c9xq__qORhaBkvzueEWNGY3zW15meS-0r8dReEPzT9liGOEzCBNq5Bi1RU=49BB3325");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
             _httpClient.BaseAddress = new Uri(JIRA_BASE_URL);
         }
@@ -31,7 +31,14 @@ namespace PlanningProject.Controllers
                     customfield_10016 = storyPoints
                 }
             };
+            var response = await _httpClient.PutAsJsonAsync($"{JIRA_BASE_URL}/{issueKey}", updateData);
 
+            if (response.IsSuccessStatusCode)
+            {
+                return Ok($"Story points updated for {issueKey} to {storyPoints}");
+            }
+
+            return BadRequest("Failed to update story points");
         }
     }
 }
