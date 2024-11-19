@@ -15,11 +15,22 @@ namespace PlanningProject.Controllers
         public Jira(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            var byteArray = System.Text.Encoding.ASCII.GetBytes("planningproject2024@gmail.com:ATATT3xFfGF01NMkKpNj4DUNV8KyPb0GWXKwAa1jtjrucR22c_lroCV5iEW7tscQcnZhwB4MhefjVVMdVlxPeJAWEl5egbX9MZxL211zsv9XX5Z0ambRpIKfGLK0-3-mRNCc6dLi0Dlh88zb9zlHfXoZCIqc5m8YP_Oe2xhkAl8ApAxzWRhXbY0=8835AC2B");
+            var byteArray = System.Text.Encoding.ASCII.GetBytes("planningproject2024@gmail.com:ATATT3xFfGF0J5UM1F9-GRS9CoBH3dc1OZOwiIfWpdbqzL9-tVJx_U_0uE2xeFEUKELhd3JZ0XRyZwYTQEprXBxCpvHJYsGI8T-3FBHEXf85SRhDckb4F13EwsvVZjKd0_oByQ4b4oFULbYZ_eVC9IZqXyXyXS0zPr-GOnbtMsyZO07cyu5pDTs=26FF72F7");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
         }
 
-  
+        [HttpGet("tasks/{customValue}")]
+        public async Task<IActionResult> GetTasks(string customValue)
+        {
+            var response = await _httpClient.GetAsync($"https://planningproject2024.atlassian.net/rest/agile/1.0/sprint/{customValue}/issue");
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                return Ok(data);
+            }
+            return StatusCode((int)response.StatusCode);
+        }
+
 
         // Other actions can be similarly updated to handle Jira data
     }
