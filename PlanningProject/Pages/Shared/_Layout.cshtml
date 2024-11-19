@@ -27,7 +27,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <main class="py-6">
                 @RenderBody()
-                @await Component.InvokeAsync("Card", new {isVoted = true, isSelected = false})
+                @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = false})
             </main>
         </div>
 

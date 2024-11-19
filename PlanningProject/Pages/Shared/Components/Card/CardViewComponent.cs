@@ -6,12 +6,12 @@ namespace PlanningProject.Pages.Shared.Components
     {
         public IViewComponentResult Invoke(bool isVoted, bool isSelected)
         {
-            var model = new CardViewModel 
-            { 
+            var model = new CardViewModel
+            {
                 isVoted = isVoted,
                 isSelected = isSelected
             };
-            return View(isVoted);
+            return View("Card", model);
         }
     }
 }
