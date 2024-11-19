@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PlanningProject",
+    "\\PlanningProject\\Controllers"
   ],
-  "SelectedNode": "\\C:\\Users\\takac\\Source\\Repos\\INTAL1",
+  "SelectedNode": "\\PlanningProject\\PlanningProject.sln",
   "PreviewInSolutionExplorer": false
 }
