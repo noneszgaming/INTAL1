@@ -5,16 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@ViewData["Title"] - PlanningProject</title>
         <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             <nav class="bg-white shadow-lg">
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="flex justify-between items-center">
-                        <a class="text-xl font-bold py-4 text-cstm-purple" asp-page="/Index">PlanningPoker</a>
+                        @await Component.InvokeAsync("Title")
                         <div class="flex space-x-4">
-                            <a class="py-4 px-2 hover:text-custom-purple" asp-page="/Index">Home</a>
-                            <a class="py-4 px-2 hover:text-custom-purple" asp-page="/Privacy">Privacy</a>
+                            <a class="py-4 px-2 hover:text-cstm-purple" asp-page="/Index">Home</a>
+                            <a class="py-4 px-2 hover:text-cstm-purple" asp-page="/Privacy">Privacy</a>
                         </div>
                     </div>
                 </div>

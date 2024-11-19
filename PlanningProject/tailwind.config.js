@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: { 
+        'titan': ['"Titan One"', 'cursive'],
+      },
       colors: {
         'cstm-purple': '#9B00F4',
       },
