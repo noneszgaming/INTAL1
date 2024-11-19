@@ -4,12 +4,13 @@ namespace PlanningProject.Pages.Shared.Components
 {
     public class CardViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(bool isVoted, bool isSelected)
+        public IViewComponentResult Invoke(bool isVoted, bool isSelected, bool isRevealed)
         {
             var model = new CardViewModel
             {
                 isVoted = isVoted,
-                isSelected = isSelected
+                isSelected = isSelected,
+                isRevealed = isRevealed
             };
             return View("Card", model);
         }

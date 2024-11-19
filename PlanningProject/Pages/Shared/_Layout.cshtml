@@ -28,6 +28,8 @@
             <main class="py-6">
                 @RenderBody()
                 @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = false})
+                @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = false, isRevealed = true})
+                @await Component.InvokeAsync("Card", new {isVoted = false, isSelected = true, isRevealed = true})
             </main>
         </div>
 
