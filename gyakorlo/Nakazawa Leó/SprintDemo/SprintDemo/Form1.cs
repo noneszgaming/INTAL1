@@ -6,7 +6,6 @@ namespace SprintDemo
 {
     public partial class SprintDemo : Form
     {
-        //Test
         Label focusedTaskLabel;
 
         public SprintDemo()
