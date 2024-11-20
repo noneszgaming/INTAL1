@@ -31,6 +31,7 @@
                 @await Component.InvokeAsync("Card", new {value= 1, isVoted = true, isSelected = false})
                 @await Component.InvokeAsync("Card", new {value= 5, isVoted = false, isSelected = false, isRevealed = true})
                 @await Component.InvokeAsync("Card", new {value= 3, isVoted = false, isSelected = true, isRevealed = true})
+                @await Component.InvokeAsync("Table", new {allVoted = false})
             </main>
         </div>
 
