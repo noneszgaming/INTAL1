@@ -568,16 +568,16 @@ video {
   margin-top: 2rem;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
 
 .flex {
   display: flex;
-}
-
-.h-2 {
-  height: 0.5rem;
 }
 
 .h-40 {
@@ -628,8 +628,8 @@ video {
   height: 80%;
 }
 
-.h-1 {
-  height: 0.25rem;
+.h-\[60\%\] {
+  height: 60%;
 }
 
 .h-80 {
@@ -638,6 +638,10 @@ video {
 
 .h-\[80\] {
   height: 80;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .min-h-screen {
@@ -758,6 +762,22 @@ video {
 
 .w-\[250px\] {
   width: 250px;
+}
+
+.w-\[25\%\] {
+  width: 25%;
+}
+
+.w-\[7\] {
+  width: 7;
+}
+
+.w-\[70\] {
+  width: 70;
+}
+
+.w-\[70\%\] {
+  width: 70%;
 }
 
 .max-w-6xl {
@@ -888,6 +908,7 @@ video {
 .border-\[px\] {
   border-color: px;
 }
+
 .bg-cstm-light-purple {
   --tw-bg-opacity: 1;
   background-color: rgb(230 188 255 / var(--tw-bg-opacity, 1));
@@ -992,17 +1013,12 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.text-justify {
-  text-align: justify;
+.text-center {
+  text-align: center;
 }
 
 .font-titan {
   font-family: "Titan One", cursive;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .text-3xl {
@@ -1071,6 +1087,11 @@ video {
 }
 
 .text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
+.text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
