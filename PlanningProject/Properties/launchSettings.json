@@ -24,7 +24,10 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7202;http://localhost:5253",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "jira_email": "planningproject2024@gmail.com",
+        "jira_api_key": "ATATT3xFfGF04f67aoD8R8loR-_5fqBSRgiGWbFoCLFig3M0Lz63RJqmHfhepUY9bC6Xt9qFvjUtabMMWGZU-CqrQ5NaCUlbKlRaIgdehN-FUIbGut4E26TVy7AZDhZS4OxWMqlEth8_OQkmVswBN0SRq0qintKAgifdEc5kZgoLOiCq_-LK_Ko=7F6225B6"
+
       }
     },
     "IIS Express": {
