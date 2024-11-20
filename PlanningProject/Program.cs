@@ -3,7 +3,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient(); // Add HttpClient service
-builder.Services.AddControllers(); // Add Controllers service
+builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+// Add Controllers service
 
 var app = builder.Build();
 

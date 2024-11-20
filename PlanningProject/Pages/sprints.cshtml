@@ -1,0 +1,41 @@
+﻿@page
+@model PlanningProject.Pages.SprintsModel
+@{
+    ViewData["Title"] = "Sprints";
+}
+
+<h2>Sprints</h2>
+
+@if (Model.Sprints != null && Model.Sprints.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>State</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sprint in Model.Sprints)
+            {
+                <tr>
+                    <td>@sprint.Id</td>
+                    <td>@sprint.Name</td>
+                    <td>@sprint.State</td>
+                    <td>@sprint.StartDate</td>
+                    <td>@sprint.EndDate</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Loading...</p>
+}
