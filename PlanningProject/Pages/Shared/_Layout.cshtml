@@ -3,45 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - PlanningProject</title>
+        <title>Planning Poker</title>
         <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <header>
-            <nav class="bg-white shadow-lg">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="flex justify-between items-center">
-                        @await Component.InvokeAsync("Title")
-                        <div class="flex space-x-4">
-                            <a class="py-4 px-2 hover:text-cstm-purple" asp-page="/Index">Home</a>
-                            <a class="py-4 px-2 hover:text-cstm-purple" asp-page="/Privacy">Privacy</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <div class="max-w-6xl mx-auto px-4">
-            <main class="py-6">
-                @RenderBody()
-                @await Component.InvokeAsync("Card", new {value= 1, isVoted = false, isSelected = false})
-                @await Component.InvokeAsync("Card", new {value= 1, isVoted = true, isSelected = false})
-                @await Component.InvokeAsync("Card", new {value= 5, isVoted = false, isSelected = false, isRevealed = true})
-                @await Component.InvokeAsync("Card", new {value= 3, isVoted = false, isSelected = true, isRevealed = true})
-                @await Component.InvokeAsync("Table", new {allVoted = false})
-            </main>
-        </div>
-
-        <footer class="border-t mt-8">
-            <div class="max-w-6xl mx-auto px-4 py-4 text-gray-600">
-                &copy; 2024 - PlanningProject - <a class="hover:text-custom-purple" asp-page="/Privacy">Privacy</a>
-            </div>
-        </footer>
-
+    <body class="w-full h-screen flex flex-col justify-center items-center">
+        @RenderBody()
         <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
     </body>
 </html>
