@@ -559,12 +559,25 @@ video {
   margin-right: auto;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mt-8 {
   margin-top: 2rem;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
+}
+
+.h-2 {
+  height: 0.5rem;
 }
 
 .h-40 {
@@ -575,32 +588,52 @@ video {
   height: 16rem;
 }
 
-.h-\[20\%\] {
-  height: 20%;
+.h-auto {
+  height: auto;
 }
 
-.h-\[40\%\] {
-  height: 40%;
-}
-
-.h-\[60\%\] {
-  height: 60%;
+.h-1 {
+  height: 0.25rem;
 }
 
 .w-24 {
   width: 6rem;
 }
 
+.w-64 {
+  width: 16rem;
+}
+
+.w-\[40\%\] {
+  width: 40%;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-\[20\%\] {
+  width: 20%;
 }
 
 .w-\[30\%\] {
   width: 30%;
 }
 
-.w-\[40\%\] {
-  width: 40%;
+.w-\[25\%\] {
+  width: 25%;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .max-w-6xl {
@@ -611,6 +644,14 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-start {
+  align-items: flex-start;
 }
 
 .items-center {
@@ -639,18 +680,6 @@ video {
   border-radius: 15px;
 }
 
-.rounded-\[15\%\] {
-  border-radius: 15%;
-}
-
-.rounded-\[5\%\] {
-  border-radius: 5%;
-}
-
-.rounded-\[50\%\] {
-  border-radius: 50%;
-}
-
 .rounded-\[25px\] {
   border-radius: 25px;
 }
@@ -666,6 +695,11 @@ video {
 .border-cstm-purple {
   --tw-border-opacity: 1;
   border-color: rgb(155 0 244 / var(--tw-border-opacity, 1));
+}
+
+.bg-cstm-light-purple {
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 188 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-cstm-purple {
@@ -687,9 +721,12 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-.bg-cstm-light-purple {
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 188 255 / var(--tw-bg-opacity, 1));
+.p-4 {
+  padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-2 {
@@ -721,8 +758,17 @@ video {
   text-align: center;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .font-titan {
   font-family: "Titan One", cursive;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -732,6 +778,10 @@ video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .text-cstm-purple {
@@ -744,6 +794,11 @@ video {
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
 
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -754,14 +809,9 @@ video {
   color: rgb(230 188 255 / var(--tw-text-opacity, 1));
 }
 
-.text-gray-400 {
+.text-black {
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
-}
-
-.text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .shadow-lg {
