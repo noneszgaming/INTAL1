@@ -16,7 +16,7 @@ namespace PlanningProject.Controllers
         public Jira(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            var byteArray = System.Text.Encoding.ASCII.GetBytes("planningproject2024@gmail.com:ATATT3xFfGF0J5UM1F9-GRS9CoBH3dc1OZOwiIfWpdbqzL9-tVJx_U_0uE2xeFEUKELhd3JZ0XRyZwYTQEprXBxCpvHJYsGI8T-3FBHEXf85SRhDckb4F13EwsvVZjKd0_oByQ4b4oFULbYZ_eVC9IZqXyXyXS0zPr-GOnbtMsyZO07cyu5pDTs=26FF72F7");
+            var byteArray = System.Text.Encoding.ASCII.GetBytes("planningproject2024@gmail.com:ATATT3xFfGF0w_vC5oOrtDH9hdx1z97kXNmq3UNyNnuVQAIdJPr7BATWPA8vaO4wpYGabMzKeBFAtV1F48NnQDosb8RkYXrl0gNYqQKNSxcwubg29fmFPiMYAbjAaijSHsHdxLG6E0KbEXaMi93V12XOfaj0QLDA41xU6D_tb85w9uEcYlZRDyg=F31CD981");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
             _httpClient.BaseAddress = new Uri(JIRA_BASE_URL);
         }
@@ -51,5 +51,21 @@ namespace PlanningProject.Controllers
             }
             return StatusCode((int)response.StatusCode);
         }
+
+        // GET: api/<Jira>/sprints
+        [HttpGet("sprints")]
+        public async Task<IActionResult> GetSprints()
+        {
+            var response = await _httpClient.GetAsync("https://planningproject2024.atlassian.net/rest/agile/1.0/board/3/sprint");
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                return Ok(data);
+            }
+            return StatusCode((int)response.StatusCode);
+        }
+
+
+
     }
 }
