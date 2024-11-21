@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.HttpLogging;
 using Newtonsoft.Json;
+using PlanningProject.Models;
 
 namespace PlanningProject.Models
 { 
@@ -24,6 +25,8 @@ namespace PlanningProject.Models
         [JsonProperty("customfield_10016")]
         public double? StoryPoints { get; set; }
         public string Description { get; set; }
+        public Sprint Sprint { get; set; }
+
 
     }
 }

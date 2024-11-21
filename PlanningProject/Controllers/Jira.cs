@@ -11,15 +11,16 @@ namespace PlanningProject.Controllers
     public class Jira : ControllerBase
     {
         private readonly HttpClient _httpClient;
-        private const string JIRA_BASE_URL = "https://planningproject2024.atlassian.net/rest/";
+        private string JIRA_BASE_URL = "";
 
         public Jira(HttpClient httpClient)
         {
 
             var email = Environment.GetEnvironmentVariable("jira_email");
             var api = Environment.GetEnvironmentVariable("jira_api_key");
-            
-            
+            JIRA_BASE_URL = Environment.GetEnvironmentVariable("jira_url");
+
+
             _httpClient = httpClient;
             var byteArray = System.Text.Encoding.ASCII.GetBytes($"{email}:{api}");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
@@ -29,12 +30,13 @@ namespace PlanningProject.Controllers
         [HttpGet("task/{issueKey}/{storyPoints}")]
         public async Task<IActionResult> UpdateStoryPoints(string issueKey, int storyPoints)
         {
+            var field = Environment.GetEnvironmentVariable("jira_s_point_filed");
             var updateData = new
             {
-                fields = new
-                {
-                    customfield_10016 = storyPoints
-                }
+                fields = new Dictionary<string, int>
+                    {
+                        { field, storyPoints }
+                    }
             };
             var response = await _httpClient.PutAsJsonAsync($"{JIRA_BASE_URL}api/3/issue/{issueKey}", updateData);
             if (response.IsSuccessStatusCode)

@@ -16,7 +16,7 @@
                 <th>State</th>
                 <th>Start Date</th>
                 <th>End Date</th>
-
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +28,9 @@
                     <td>@sprint.State</td>
                     <td>@sprint.StartDate</td>
                     <td>@sprint.EndDate</td>
-
-
+                    <td>
+                        <a href="/Task?SprintId=@sprint.Id" class="btn btn-secondary">View Tasks</a>
+                    </td>
                 </tr>
             }
         </tbody>
