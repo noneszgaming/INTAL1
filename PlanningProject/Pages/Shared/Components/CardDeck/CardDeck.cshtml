@@ -1,0 +1,14 @@
+@model CardDeckViewModel
+
+<div class="w-full h-[15%] flex items-center justify-center gap-4">
+    @await Component.InvokeAsync("Card", new { value = 1, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 2, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 3, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 4, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 5, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 6, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 7, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 8, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 9, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 10, isRevealed = true })
+</div>

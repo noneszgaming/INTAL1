@@ -1,0 +1,21 @@
+@page "/Poker"
+@model PlanningProject.Pages.Poker.PokerModel
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <div class="w-full h-screen flex flex-col flex-grow">
+        <div class="w-full h-[86%] flex flex-col items-center justify-center">
+
+        </div>
+        @await Component.InvokeAsync("CardDeck")
+    </div>
+</body>
+
+</html>
