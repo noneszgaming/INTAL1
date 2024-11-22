@@ -1,11 +1,10 @@
 @model CardViewModel
 
 <div onclick="handleClick(this)" class="card w-[60px] h-[90px] rounded-[15px] flex items-center justify-center cursor-pointer duration-500 hover:-translate-y-4
-     @(Model.isRevealed && Model.isSelected ? "bg-cstm-purple -translate-y-4" : 
-       Model.isRevealed && !Model.isSelected ? "bg-transparent border-[3px] border-cstm-purple" : 
+     @(Model.isRevealed ? "bg-transparent border-[3px] border-cstm-purple" : 
        Model.isVoted ? "bg-cstm-purple" : "bg-gray-400")">
     @if (Model.isRevealed)
     {
-        <p class="text-xl font-bold text-cstm-purple select-none @(Model.isSelected ? "text-white" : "")">@Model.value</p>
+        <p class="text-xl font-bold text-cstm-purple select-none">@Model.value</p>
     }
 </div>
