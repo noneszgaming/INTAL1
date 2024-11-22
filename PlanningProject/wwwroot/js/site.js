@@ -1,4 +1,31 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function validateLoginForm() {
+    const username = document.getElementById('username').value;
+    
+    if (!username) {
+        alert('A felhasználónév mező nem lehet üres. Kérem írjon be egy érvényes felhasználónevet.');
+        return false;
+    }
+    return true;
+}
 
-// Write your JavaScript code.
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            if (!validateLoginForm()) {
+                e.preventDefault();
+            }
+        });
+    }
+});
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const username = document.getElementById('usernameInput').value.trim();
+
+    if (username) {
+        alert(`Üdvözlöm, ${username}! Sikeresen helyet foglalt a Planning Poker asztalnál.`);
+    } else {
+        alert('A felhasználónév mező nem lehet üres. Kérem írjon be egy érvényes felhasználónevet.');
+    }
+}
