@@ -13,9 +13,38 @@
 <body>
     <div class="w-full h-screen flex flex-col flex-grow relative">
         @await Component.InvokeAsync("PokerHeader", new { isOpened = false })
-        <div class="w-full h-[86%] flex flex-col items-center justify-center">
+
+        <div class="w-full h-[86%] flex items-center justify-center">
+
+            @* card table container *@
+            <div class="w-[80%] h-full flex">
+                <div class="w-[20%] h-full flex flex-col items-end justify-center">
+                    @await Component.InvokeAsync("TableCard")
+                </div>
+                <div class="w-[60%] h-full flex flex-col items-center justify-evenly">
+                    <div class="w-full flex justify-evenly items-end">
+                        @await Component.InvokeAsync("TableCard")
+                        @await Component.InvokeAsync("TableCard")
+                        @await Component.InvokeAsync("TableCard")
+                    </div>
+                    @await Component.InvokeAsync("Table", new { allVoted = false })
+                    <div class="w-full flex justify-evenly items-end">
+                        @await Component.InvokeAsync("TableCard")
+                        @await Component.InvokeAsync("TableCard")
+                        @await Component.InvokeAsync("TableCard")
+                    </div>
+                </div>
+                <div class="w-[20%] h-full flex flex-col items-start justify-center">
+                    @await Component.InvokeAsync("TableCard")
+                </div>
+            </div>
+
+            <div class="w-[20%] h-full flex justify-center items-center">
+                @await Component.InvokeAsync("TaskDesc", new { taskName = "Task 1", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." })
+            </div>
 
         </div>
+
         @await Component.InvokeAsync("CardDeck")
     </div>
 </body>
