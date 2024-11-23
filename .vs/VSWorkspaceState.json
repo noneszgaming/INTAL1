@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TestProgram",
+    "\\TestProgram\\Adatbazis",
+    "\\TestProgram\\TestProgram",
+    "\\TestProgram\\TestProgram\\TestProgram"
   ],
-  "SelectedNode": "\\C:\\Users\\Zolt\u00E1nSzil\u00E1gyi\\Source\\Repos\\INTAL1",
+  "SelectedNode": "\\TestProgram\\Adatbazis\\ab_test_data.sql",
   "PreviewInSolutionExplorer": false
 }
