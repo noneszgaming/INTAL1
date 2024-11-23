@@ -8,7 +8,7 @@ namespace PlanningProject.Pages.Shared.Components
         {
             var model = new PokerHeaderViewModel
             {
-                IsOpened = isOpened
+                isOpened = isOpened
             };
             return View("PokerHeader", model);
         }

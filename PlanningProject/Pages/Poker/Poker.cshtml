@@ -12,6 +12,7 @@
 
 <body>
     <div class="w-full h-screen flex flex-col flex-grow relative">
+        @await Component.InvokeAsync("ProgressSidePanel")
         @await Component.InvokeAsync("PokerHeader", new { isOpened = false })
 
         <div class="w-full h-[86%] flex items-center justify-center">
