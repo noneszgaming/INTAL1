@@ -1,0 +1,83 @@
+﻿@page
+@model PlanningProject.Pages.VotingLobbyModel
+@{
+    ViewData["Title"] = "Planning Session";
+}
+
+<div class="container">
+    <h2>Planning Session - Sprint @Model.SprintId</h2>
+
+    <div id="issuesList">
+        @foreach (var issue in Model.Issues)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@issue.Key</h5>
+                    <div class="voting-buttons">
+                        <button class="btn btn-sm btn-primary vote-btn" data-value="1">1</button>
+                        <button class="btn btn-sm btn-primary vote-btn" data-value="2">2</button>
+                        <button class="btn btn-sm btn-primary vote-btn" data-value="3">3</button>
+                        <button class="btn btn-sm btn-primary vote-btn" data-value="5">5</button>
+                        <button class="btn btn-sm btn-primary vote-btn" data-value="8">8</button>
+                    </div>
+                    <div class="voting-results mt-2" style="display: none;">
+                        <h6>Votes:</h6>
+                        <div id="votes-@issue.Key"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/planningHub")
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        // Handle votes
+        connection.on("ReceiveVote", (issueKey, points, voterId) => {
+            console.log(`Vote received: ${issueKey}, ${points}, ${voterId}`);
+            const voteDisplay = document.querySelector(`#votes-${issueKey}`);
+            if (voteDisplay) {
+                voteDisplay.parentElement.style.display = 'block';
+                voteDisplay.innerHTML += `<span class="badge bg-primary m-1">Vote: ${points}</span>`;
+            }
+        });
+
+        // Add click handlers for vote buttons
+        function setupVoteButtons() {
+            document.querySelectorAll('.vote-btn').forEach(button => {
+                button.addEventListener('click', async function(e) {
+                    e.preventDefault();
+                    const points = this.getAttribute('data-value');
+                    const issueCard = this.closest('.card');
+                    const issueKey = issueCard.querySelector('.card-title').textContent.trim();
+                    
+                    console.log(`Voting: ${issueKey}, ${points}, ${@Model.SprintId}`);
+                    try {
+                        await connection.invoke("Vote", issueKey, parseInt(points), "@Model.SprintId");
+                        console.log("Vote sent successfully");
+                    } catch (err) {
+                        console.error("Error sending vote:", err);
+                    }
+                });
+            });
+        }
+
+        // Start connection
+        connection.start()
+            .then(() => {
+                console.log("Connected to planning hub");
+                return connection.invoke("JoinSession", "@Model.SprintId");
+            })
+            .then(() => {
+                console.log("Joined session");
+                setupVoteButtons();
+            })
+            .catch(err => console.error("Connection error:", err));
+    </script>
+}
