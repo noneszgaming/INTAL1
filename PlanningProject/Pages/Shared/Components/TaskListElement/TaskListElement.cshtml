@@ -1,8 +1,9 @@
 @model TaskListElementViewModel
 
-<div class="w-full h-full flex items-center justify-between px-[12px] py-[8px] border-2 border-slate-400 rounded-md">
-    <h2 class="text-xl text">@Model.title</h2>
-    <div class="">
-        <p class="">Avg: @Model.averageScore</p>
+<div
+    class="w-full h-[100px] min-h-[100px] flex items-center justify-between px-[40px] py-[8px] bg-zinc-300 border-[3px] border-slate-400 rounded-[20px] text-[30px]">
+    <h2 class="text-[30px] font-semibold text-slate-500">@Model.title</h2>
+    <div class="flex items-center gap-2">
+        <p class="text-[30px] font-semibold text-slate-500">Avg: @Math.Floor(@Model.averageScore)</p>
     </div>
 </div>
