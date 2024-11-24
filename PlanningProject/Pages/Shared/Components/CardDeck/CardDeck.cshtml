@@ -1,0 +1,29 @@
+@model CardDeckViewModel
+
+<script>
+    function handleClick(element) {
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.remove('bg-cstm-purple', '-translate-y-4', 'selected');
+            card.classList.add('bg-transparent', 'border-[3px]', 'border-cstm-purple');
+            card.querySelector('p')?.classList.remove('text-white');
+        });
+
+        // Select clicked card
+        element.classList.remove('bg-transparent', 'border-[3px]', 'border-cstm-purple');
+        element.classList.add('bg-cstm-purple', '-translate-y-4', 'selected');
+        element.querySelector('p')?.classList.add('text-white');
+    }
+</script>
+
+<div class="w-full h-[15%] flex items-center justify-center gap-4">
+    @await Component.InvokeAsync("Card", new { value = 1, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 2, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 3, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 4, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 5, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 6, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 7, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 8, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 9, inDeck = true, isRevealed = true })
+    @await Component.InvokeAsync("Card", new { value = 10, inDeck = true, isRevealed = true })
+</div>
