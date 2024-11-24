@@ -1,8 +1,12 @@
 {
   "Version": 1,
+<<<<<<< HEAD
 
   "WorkspaceRootPath": "D:\\Repos\\INTAL1\\",
 
+=======
+  "WorkspaceRootPath": "C:\\Users\\Monkey pc\\source\\repos\\INTAL1\\",
+>>>>>>> database
   "Documents": [],
   "DocumentGroupContainers": [
     {

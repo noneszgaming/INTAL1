@@ -4,6 +4,10 @@
     "\\PlanningProject",
     "\\PlanningProject\\Models"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\PlanningProject\\PlanningProject.sln",
+=======
+  "SelectedNode": "\\PlanningProject.sln",
+>>>>>>> database
   "PreviewInSolutionExplorer": false
 }
