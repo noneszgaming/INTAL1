@@ -1,7 +1,14 @@
+using PlanningProject.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddHttpClient(); // Add HttpClient service
+builder.Services.AddControllers();
+builder.Services.AddSignalR();
+builder.Services.AddHttpContextAccessor();
+// Add Controllers service
 
 var app = builder.Build();
 
@@ -18,8 +25,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+app.MapHub<PlanningHub>("/planningHub");
 
 app.Run();

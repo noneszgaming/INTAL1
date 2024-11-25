@@ -1,0 +1,66 @@
+﻿@page
+@model PlanningProject.Pages.TasksModel
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<h1>Tasks for Sprint @Model.SprintId</h1>
+
+<div class="container">
+    @if (Model.IssueResponse?.Issues != null && Model.IssueResponse.Issues.Any())
+    {
+        <div class="row">
+            @foreach (var issue in Model.IssueResponse.Issues)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@issue.Key</h5>
+                            <p class="card-text">@issue.Fields.Description</p>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control story-points"
+                                       value="@issue.Fields.StoryPoints"
+                                       data-issue-key="@issue.Key" />
+                                <button class="btn btn-primary update-points"
+                                        data-issue-key="@issue.Key">
+                                    Update Points
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="mt-3">
+            <p>Total Issues: @Model.IssueResponse.Total</p>
+            <p>Showing @Model.IssueResponse.StartAt to @Model.IssueResponse.MaxResults</p>
+        </div>
+    }
+    else
+    {
+        <p>No issues found for this sprint.</p>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.update-points').forEach(button => {
+            button.addEventListener('click', async () => {
+                const issueKey = button.dataset.issueKey;
+                const input = document.querySelector(`input[data-issue-key="${issueKey}"]`);
+                const storyPoints = input.value;
+
+                const response = await fetch(`/api/Jira/task/${issueKey}/${storyPoints}`, {
+                    method: 'GET'
+                });
+
+                if (response.ok) {
+                    alert('Story points updated successfully!');
+                    location.reload();
+                } else {
+                    alert('Failed to update story points.');
+                }
+            });
+        });
+    </script>
+}
