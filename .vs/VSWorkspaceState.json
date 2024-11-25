@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PlanningProject",
+    "\\PlanningProject\\Models"
   ],
-  "SelectedNode": "\\C:\\Intal",
+
+  "SelectedNode": "\\PlanningProject\\PlanningProject.sln",
+
   "PreviewInSolutionExplorer": false
 }

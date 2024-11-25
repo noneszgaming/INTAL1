@@ -1,14 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+
 using PlanningProject.Data;
 using PlanningProject.Models;
 using System.ComponentModel.DataAnnotations;
+
 
 namespace PlanningProject.Pages.Login
 {
     public class LoginModel : PageModel
     {
         [BindProperty]
+
         [Required(ErrorMessage = "Username is required.")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50 characters.")]
         [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Username can only contain letters and numbers.")]
@@ -21,12 +24,14 @@ namespace PlanningProject.Pages.Login
         public LoginModel(ApplicationDbContext context)
         {
             _context = context;
+
         }
 
         public IActionResult OnPost()
         {
             if (!string.IsNullOrEmpty(Username))
             {
+
                 if (!ModelState.IsValid)
                 {
                     return Page(); // Return the page with validation messages

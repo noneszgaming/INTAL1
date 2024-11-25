@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+
 using PlanningProject.Data;
 using PlanningProject.Models;
 
@@ -8,6 +9,7 @@ namespace PlanningProject.Hubs
     {
         private readonly ApplicationDbContext _dbContext = context;
 
+
         public async Task JoinSession(string sprintId)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, $"sprint_{sprintId}");
@@ -15,6 +17,7 @@ namespace PlanningProject.Hubs
 
         public async Task Vote(string issueKey, int points, string sprintId)
         {
+
             var existingTask = _dbContext.Tasks.FirstOrDefault(task => task.Task_id == issueKey);
 
             if (existingTask != null)
@@ -32,6 +35,7 @@ namespace PlanningProject.Hubs
                 // If the task does not exist, return an error to the client
                 await Clients.Caller.SendAsync("Error", $"Task with issue key '{issueKey}' does not exist.");
             }
+
         }
     }
 }

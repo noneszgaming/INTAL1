@@ -1,6 +1,28 @@
-@page
+
+@page "/Lobby"
 @model PlanningProject.Pages.Lobby.LobbyModel
 
-<div class="">
-    
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planning Poker Lobby</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="w-full h-screen flex flex-col items-center justify-center bg-gradient-to-br from-70% from-slate-100 to-cstm-purple">
+        <div class="absolute top-0 left-0 m-4">
+            @await Component.InvokeAsync("Title")
+        </div>
+
+        @await Component.InvokeAsync("LobbySprintPanel")
+
+        <div class="absolute top-0 right-0 m-4">
+            @await Component.InvokeAsync("ActiveUser", new { username = "User 0" })
+        </div>
+    </div>
+</body>
+
+</html>
+

@@ -1,5 +1,6 @@
 @model CardViewModel
 
+
 <div class="w-24 h-40 rounded-[15px] flex items-center justify-center 
     @(Model.isRevealed && Model.isSelected ? "bg-cstm-purple" : 
       Model.isRevealed && !Model.isSelected ? "bg-transparent border-4 border-cstm-purple" : 
@@ -8,5 +9,6 @@
     @if (Model.isRevealed)
     {
         <p class="text-3xl font-bold text-cstm-purple @(Model.isSelected ? "text-white" : "")">@Model.value</p>
+
     }
 </div>
