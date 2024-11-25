@@ -6,6 +6,7 @@
 <head>
     <title>Planning Poker</title>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
@@ -16,11 +17,6 @@
                 <span class="inline-block w-[4px] h-14 bg-cstm-purple"></span>
                 <p class="text-2xl text-purple-600 font-semibold px-4 select-none">Planning doesn't have to be boring.</p>
             </div>
-
-            @await Component.InvokeAsync("Participants", new { currentParticipants = 8, totalParticipants = 10 })
-            @await Component.InvokeAsync("Date", new { startDate = "2024. 11. 18.", endDate = "2024. 11. 20." })
-            @await Component.InvokeAsync("StartBtn"})
-
 
             <p class="text-[20px] font-semibold text-gray-500 select-none">Please enter a Username so you can play with us.</p>
 
