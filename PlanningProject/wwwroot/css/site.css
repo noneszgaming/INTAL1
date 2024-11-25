@@ -1,22 +1,24 @@
-html {
-  font-size: 14px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: transparent;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
 }
-
-body {
-  margin-bottom: 60px;
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #a664cd;
 }

@@ -1,0 +1,18 @@
+@model PokerHeaderViewModel
+
+<script>
+    function togglePanel() {
+        const panel = document.querySelector('.progress-side-panel');
+        panel.classList.toggle('translate-x-0');
+        panel.classList.toggle('-translate-x-full');
+    }
+</script>
+
+<div class="absolute top-0 w-full h-fit flex items-center justify-between px-[12px] py-[12px]">
+    <button onclick="togglePanel()"
+        class="w-[50px] h-[50px] flex justify-center items-center hover:bg-purple-300 rounded-full z-30 duration-500 outline-none @(Model.isOpened ? "" : "")">
+        <i class="fa-solid fa-list text-[24px] text-cstm-purple"></i>
+    </button>
+    <p class="text-xl text-cstm-purple text-center font-semibold selection:bg-cstm-purple selection:text-white">User 0
+    </p>
+</div>

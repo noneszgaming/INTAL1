@@ -1,0 +1,8 @@
+@model TaskDescViewModel
+
+<div
+    class="task-card w-[90%] h-auto rounded-[15px] border-4 border-cstm-purple bg-white p-4 flex flex-col justify-center items-start">
+    <h2 class="text-2xl font-bold text-cstm-purple w-full flex justify-center items-center">@Model.TaskName</h2>
+    <span class="w-[70%] h-1 bg-cstm-purple text-white block my-2 mx-auto"></span>
+    <p class="text-black font-semibold text-center">@Model.Description</p>
+</div>
