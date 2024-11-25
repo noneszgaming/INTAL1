@@ -12,6 +12,8 @@ module.exports = {
       colors: {
         'cstm-purple': '#9B00F4',
         'cstm-light-purple': '#E6BCFF',
+        'cstm-lobby-limit-purple': '#A664CD',
+        'cstm-lobby-date-purple': '#6D4087',
       },
     },
   },
