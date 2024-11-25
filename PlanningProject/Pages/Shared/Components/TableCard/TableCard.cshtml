@@ -1,7 +1,0 @@
-@model TableCardViewModel
-
-<div class="flex flex-col gap-2">
-    @await Component.InvokeAsync("Card", new { value = 1, inDeck = false, isVoted = false, isRevealed = false })
-    <p class="text-lg text-slate-800 text-center font-semibold selection:bg-cstm-purple selection:text-white">User 0
-    </p>
-</div>
