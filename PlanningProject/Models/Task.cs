@@ -4,11 +4,13 @@ using Newtonsoft.Json;
 using PlanningProject.Models;
 
 namespace PlanningProject.Models
+
 { 
     public class IssueResponse
     {
         public string Expand { get; set; }
         public int StartAt {  get; set; }
+
         public int MaxResults { get; set; }
         public int Total { get; set; }
         public List<Issue> Issues { get; set; }
@@ -26,7 +28,6 @@ namespace PlanningProject.Models
         public double? StoryPoints { get; set; }
         public string Description { get; set; }
         public Sprint Sprint { get; set; }
-
 
     }
 }

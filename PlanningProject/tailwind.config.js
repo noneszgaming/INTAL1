@@ -16,6 +16,7 @@ module.exports = {
         'cstm-lobby-date-purple': '#6D4087',
         'cstm-lobby-gray': '#D9D9D9',
         'cstm-lobby-sprintsbg': '#F2ECF6',
+
       },
     },
   },

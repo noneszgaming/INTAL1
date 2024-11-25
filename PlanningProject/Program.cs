@@ -1,7 +1,20 @@
+
+using Microsoft.EntityFrameworkCore;
+using PlanningProject.Data;
 using PlanningProject.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddHttpClient(); // Add HttpClient service
+builder.Services.AddControllers();
+builder.Services.AddSignalR();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddControllersWithViews();
+// Add Controllers service
 
 builder.Services.AddHttpClient(); // Add HttpClient service
 builder.Services.AddControllers();
@@ -28,6 +41,7 @@ app.MapGet("/", context =>
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
 
 app.UseAuthorization();
 app.MapRazorPages();

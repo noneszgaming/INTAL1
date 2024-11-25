@@ -1,0 +1,61 @@
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text.Json;
+using PlanningProject.Models;
+
+namespace PlanningProject.Pages
+{
+    public class SprintsModel : PageModel
+    {
+        // objektum típusai: HttpClient, IHttpContextAccessor
+        private readonly HttpClient _httpClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        // Konstruktor, létrehoz egy kliens munkamenetet
+        public SprintsModel(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
+        {
+            _httpClient = httpClient;
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        // Sprint lista létrehozása, get és set-el
+        public List<Sprint> Sprints { get; private set; }
+
+
+        public async Task OnGetAsync()
+        {
+            // launcsettings.json file-ból felhasználja a változókat. "Környezeti változók"
+            var request = _httpContextAccessor.HttpContext.Request;
+            var baseUrl = $"{request.Scheme}://{request.Host}";
+            // response létrehozása localhost és elérési úttal
+            // async függvény eredményének eltárolása
+            var response = await _httpClient.GetAsync($"{baseUrl}/api/Jira/sprints");
+
+            // response status code "OK"-e.
+            if (response.IsSuccessStatusCode)
+            {
+
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions
+                {
+                    // A nagy és kis betűket is elfogadja
+                    PropertyNameCaseInsensitive = true
+                };
+                // a felső 2 paramétert használja fel a sprintsResponse
+                var sprintsResponse = JsonSerializer.Deserialize<SprintsResponse>(jsonResponse, options);
+                
+                // sprintsResponse (objektum) értékei alapján feltölti a sprints-et. (A values maga egy lista)
+                Sprints = sprintsResponse.Values;
+            }
+            else
+            {
+                // ha nem "OK" a status code akkor üres listát ad vissza
+                Sprints = new List<Sprint>();
+            }
+        }
+    }
+
+}

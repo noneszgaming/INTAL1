@@ -1,0 +1,10 @@
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\bin\Debug\gyakorlasAPlaningPokerre.exe.config
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\bin\Debug\gyakorlasAPlaningPokerre.exe
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\bin\Debug\gyakorlasAPlaningPokerre.pdb
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.csproj.AssemblyReference.cache
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.Form1.resources
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.Properties.Resources.resources
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.csproj.GenerateResource.cache
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.csproj.CoreCompileInputs.cache
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.exe
+C:\Users\nyarf\source\repos\gyakorlasAPlaningPokerre\gyakorlasAPlaningPokerre\obj\Debug\gyakorlasAPlaningPokerre.pdb

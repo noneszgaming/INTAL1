@@ -1,10 +1,13 @@
 @model TableViewModel
 
+
 <div class=" w-[80%] h-64 rounded-[25px] flex items-center justify-center 
+
     @(Model.AllVoted ? "bg-cstm-light-purple" : "bg-cstm-light-purple")
 ">
     @if (Model.AllVoted)
     {
+
         <button
             class="w-[50%] bg-cstm-purple text-white font-bold py-[12px] px-4 rounded-[12px] hover:bg-purple-800 duration-500 select-none">Reveal
             cards</button>
@@ -12,5 +15,6 @@
     @if (!Model.AllVoted)
     {
         <p class="text-xl text-gray-600 select-none">Waiting for the others...</p>
+
     }
 </div>

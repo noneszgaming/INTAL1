@@ -10,6 +10,7 @@ namespace PlanningProject.Pages.Shared.Components
             {
                 inDeck = inDeck,
                 isVoted = isVoted,
+
                 isRevealed = isRevealed,
                 value = value
             };
