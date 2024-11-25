@@ -1,5 +1,15 @@
+using PlanningProject.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
+
+builder.Services.AddHttpClient(); // Add HttpClient service
+builder.Services.AddControllers();
+builder.Services.AddSignalR();
+builder.Services.AddHttpContextAccessor();
+// Add Controllers service
+
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -18,7 +28,13 @@ app.MapGet("/", context =>
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
 app.UseAuthorization();
 app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+app.MapHub<PlanningHub>("/planningHub");
 
 app.Run();
