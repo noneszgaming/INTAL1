@@ -1,13 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using PlanningProject.Data;
 using PlanningProject.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddHttpClient(); // Add HttpClient service
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddControllersWithViews();
 // Add Controllers service
 
 var app = builder.Build();
