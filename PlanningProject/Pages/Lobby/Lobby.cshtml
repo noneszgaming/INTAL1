@@ -19,7 +19,7 @@
         @await Component.InvokeAsync("LobbySprintPanel")
 
         <div class="absolute top-0 right-0 m-4">
-            @await Component.InvokeAsync("ActiveUser", new { username = "User 0" })
+            @await Component.InvokeAsync("ActiveUser", Model.Username)
         </div>
     </div>
 </body>
