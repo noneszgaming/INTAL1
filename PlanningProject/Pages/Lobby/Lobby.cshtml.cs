@@ -18,7 +18,7 @@ namespace PlanningProject.Pages.Lobby
 
         public string? Username { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? userId)
         {
             var request = _httpContextAccessor.HttpContext.Request;
             var baseUrl = $"{request.Scheme}://{request.Host}";
@@ -59,6 +59,14 @@ namespace PlanningProject.Pages.Lobby
                     // Save changes to the database
                     await _context.SaveChangesAsync();
                 }
+
+                // Retrieve the user from the database
+                var existingUser = _context.Users.FirstOrDefault(u => u.User_id == userId);
+
+                if (existingUser != null)
+                {
+                    Username = existingUser.Username;
+                }
             }
             else
             {
@@ -68,12 +76,9 @@ namespace PlanningProject.Pages.Lobby
 
         public IActionResult OnPost()
         {
-            var dbSprint = new DbSprint
-            {
-                Sprint_id = int.Parse("1")
-            };
+            var dBSprint = new DbSprint { Sprint_id = 1 };
 
-            return RedirectToPage("/Poker/Poker", HttpContext.Request.Query["userId"], new { sprintId = dbSprint.Sprint_id });
+            return RedirectToPage("/Poker/Poker", new { sprintId = dBSprint.Sprint_id, userId = HttpContext.Request.Query["userId"] });
         }
     }
 
