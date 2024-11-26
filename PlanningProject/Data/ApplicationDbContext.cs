@@ -11,5 +11,6 @@ namespace PlanningProject.Data
 
         public DbSet<DbUser> Users { get; set; }
         public DbSet<DbTask> Tasks { get; set; }
+        public DbSet<DbSprint> Sprints { get; set; }
     }
 }

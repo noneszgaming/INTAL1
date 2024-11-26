@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PlanningProject.Data;
+using PlanningProject.Models;
 
 namespace PlanningProject.Pages.Lobby
 {
@@ -8,7 +9,9 @@ namespace PlanningProject.Pages.Lobby
     {
         ApplicationDbContext _context = context;
 
+        [BindProperty]
         public string? Username { get; set; }
+        public int Sprint_id {  get; set; }
 
         public IActionResult OnGet(int userId)
         {
@@ -21,6 +24,12 @@ namespace PlanningProject.Pages.Lobby
 
             Username = user.Username;
             return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            var newsprint = new DbSprint(Sprint_id);
+            return RedirectToPage("/Poker/Poker", HttpContext.Request.Query["userId"]);
         }
     }
 }
