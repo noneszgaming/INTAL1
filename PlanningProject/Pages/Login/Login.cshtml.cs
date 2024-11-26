@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using PlanningProject.Data;
@@ -7,29 +7,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PlanningProject.Pages.Login
 {
-    public class LoginModel : PageModel
+    public class LoginModel(ApplicationDbContext context) : PageModel
     {
+        ApplicationDbContext _context = context;
+
         [BindProperty]
 
         [Required(ErrorMessage = "Username is required.")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50 characters.")]
         [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Username can only contain letters and numbers.")]
-        public string Username {  get; set; }
+        public string? Username { get; set; }
 
-        public string FeedbackMessage { get; set; }
+        public string? FeedbackMessage { get; set; }
 
-        private readonly ApplicationDbContext _context;
-
-        public LoginModel(ApplicationDbContext context)
-        {
-            _context = context;
-
-        }
         public IActionResult OnPost()
         {
             if (!string.IsNullOrEmpty(Username))
             {
-
                 if (!ModelState.IsValid)
                 {
                     return Page(); // Return the page with validation messages
@@ -47,12 +41,12 @@ namespace PlanningProject.Pages.Login
 
                     int userId = user.User_id;
 
-                    FeedbackMessage = $"User created successfully with ID: {userId}";
+                    FeedbackMessage = $"Üdvözöljük a Planning Pokerben kedves {Username}";
+
+                    return RedirectToPage("/Lobby/Lobby", new { userId = user.User_id });
                 }
-                else
-                {
-                    FeedbackMessage = "Username already exists!";
-                }
+
+                FeedbackMessage = "A felhasználónév már szerepel rendszerünkben, kérem válasszon újat.";
             }
 
             return Page();

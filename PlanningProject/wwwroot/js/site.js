@@ -23,9 +23,7 @@ function handleSubmit(event) {
 
     const username = document.getElementById('usernameInput').value.trim();
 
-    if (username) {
-        alert(`Üdvözlöm, ${username}! Sikeresen helyet foglalt a Planning Poker asztalnál.`);
-    } else {
-        alert('A felhasználónév mező nem lehet üres. Kérem írjon be egy érvényes felhasználónevet.');
+    if (!username) {
+        alert('A felhasználónév mező nem lehet üres, kérem írjon be egy érvényes felhasználónevet.');
     }
 }

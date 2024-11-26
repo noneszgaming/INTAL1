@@ -7,7 +7,9 @@ namespace PlanningProject.Pages.Lobby
     public class LobbyModel(ApplicationDbContext context) : PageModel
     {
         ApplicationDbContext _context = context;
+
         public string? Username { get; set; }
+
         public IActionResult OnGet(int userId)
         {
             // Retrieve the user from the database
@@ -16,6 +18,7 @@ namespace PlanningProject.Pages.Lobby
             {
                 return NotFound(); // Handle case where user is not found
             }
+
             Username = user.Username;
             return Page();
         }
