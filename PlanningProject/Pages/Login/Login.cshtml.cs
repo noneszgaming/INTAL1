@@ -5,7 +5,6 @@ using PlanningProject.Data;
 using PlanningProject.Models;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace PlanningProject.Pages.Login
 {
     public class LoginModel : PageModel
@@ -26,7 +25,6 @@ namespace PlanningProject.Pages.Login
             _context = context;
 
         }
-
         public IActionResult OnPost()
         {
             if (!string.IsNullOrEmpty(Username))

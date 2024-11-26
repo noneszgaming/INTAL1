@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function handleSubmit(event) {
-    event.preventDefault();
+    
     const username = document.getElementById('usernameInput').value.trim();
 
     if (username) {
