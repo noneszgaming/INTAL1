@@ -50,5 +50,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
 app.MapHub<PlanningHub>("/planningHub");
+app.MapHub<PokerHub>("/pokerHub");
 
 app.Run();

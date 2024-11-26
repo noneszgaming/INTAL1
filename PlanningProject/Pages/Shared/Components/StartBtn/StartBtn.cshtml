@@ -1,5 +1,6 @@
-@model PlanningProject.Pages.Shared.Components.StartBtnViewModel
 
-<button class="w-10 h-10 rounded-full flex items-center justify-center bg-cstm-purple">
-    <span class="text-white font-bold fa-solid fa-play"></span>
-</button>
+@model dynamic
+
+<a href="/Poker?SprintId=@Model.SprintId" class="w-[60px] h-[60px] flex items-center justify-center bg-cstm-lobby-limit-purple rounded-[15px] hover:bg-cstm-purple transition-colors">
+    <i class="fa-solid fa-play text-white text-2xl"></i>
+</a>

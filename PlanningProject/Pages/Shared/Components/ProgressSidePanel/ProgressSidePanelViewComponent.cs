@@ -1,16 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using PlanningProject.Models;
 
-namespace PlanningProject.Pages.Shared.Components
+public class ProgressSidePanelViewComponent : ViewComponent
 {
-    public class ProgressSidePanelViewComponent : ViewComponent
+    public IViewComponentResult Invoke(List<Issue> issues)
     {
-        public IViewComponentResult Invoke()
+        var model = new ProgressSidePanelViewModel
         {
-            var model = new ProgressSidePanelViewModel
-            {
+            Issues = issues
+        };
 
-            };
-            return View("ProgressSidePanel", model);
-        }
+        return View("ProgressSidePanel", model);
     }
 }
