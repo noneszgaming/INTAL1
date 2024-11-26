@@ -42,8 +42,6 @@ namespace PlanningProject.Pages.Login
 
                     int userId = user.User_id;
 
-                    FeedbackMessage = $"Üdvözöljük a Planning Pokerben kedves {Username}";
-
                     return RedirectToPage("/Lobby/Lobby", new { userId = user.User_id });
                 }
 
