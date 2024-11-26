@@ -2,5 +2,5 @@ using PlanningProject.Models;
 
 public class ProgressSidePanelViewModel
 {
-    public List<Issue> Issues { get; set; } = new List<Issue>();
+    public List<DbTask> Tasks { get; set; } = new List<DbTask>();
 }

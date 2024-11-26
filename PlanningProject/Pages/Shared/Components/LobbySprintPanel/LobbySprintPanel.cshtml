@@ -9,10 +9,10 @@
         {
             @await Component.InvokeAsync("SprintListElement", new
                 {
-                    id = sprint.Id,
-                    title = sprint.Name,
-                    startDate = sprint.StartDate,
-                    endDate = sprint.EndDate,
+                    id = sprint.Sprint_id,
+                    title = sprint.Description,
+                    startDate = "sprint.StartDate",
+                    endDate = "sprint.EndDate",
                     currentParticipants = 5,
                     totalParticipants = 2
                 })

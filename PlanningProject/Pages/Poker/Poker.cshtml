@@ -11,7 +11,7 @@
 
 <body>
     <div class="w-full h-screen flex flex-col flex-grow relative">
-        @await Component.InvokeAsync("ProgressSidePanel", new { issues = Model.Issues })
+        @await Component.InvokeAsync("ProgressSidePanel", new { tasks = Model.Tasks })
         @await Component.InvokeAsync("PokerHeader", new { isOpened = false })
 
         <div class="w-full h-[86%] flex items-center justify-center">
@@ -40,13 +40,13 @@
 
             <div class="w-[20%] h-full flex justify-center items-center">
                 @{
-                    var firstIssue = Model.Issues.FirstOrDefault();
-                    if (firstIssue != null)
+                    var firstTask = Model.Tasks.FirstOrDefault();
+                    if (firstTask != null)
                     {
                         @await Component.InvokeAsync("TaskDesc", new
                             {
-                                taskName = firstIssue.Key,
-                                description = firstIssue.Fields.Description
+                                taskName = firstTask.Task_id,
+                                description = "teszt"
                             })
                     }
                     else

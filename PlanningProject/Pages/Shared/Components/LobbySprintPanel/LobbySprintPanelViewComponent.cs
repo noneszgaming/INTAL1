@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.Text.Json;
 using PlanningProject.Models;
+using PlanningProject.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace PlanningProject.Pages.Shared.Components
 {
@@ -11,30 +13,21 @@ namespace PlanningProject.Pages.Shared.Components
         private readonly HttpClient _httpClient;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public LobbySprintPanelViewComponent(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
+        private readonly ApplicationDbContext _context;
+
+        public LobbySprintPanelViewComponent(HttpClient httpClient, IHttpContextAccessor httpContextAccessor, ApplicationDbContext context)
         {
             _httpClient = httpClient;
             _httpContextAccessor = httpContextAccessor;
+            _context = context;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var request = _httpContextAccessor.HttpContext.Request;
-            var baseUrl = $"{request.Scheme}://{request.Host}";
-            var response = await _httpClient.GetAsync($"{baseUrl}/api/Jira/sprints");
+            var sprints = await _context.Sprints.ToListAsync();
 
             var model = new LobbySprintPanelViewModel();
-
-            if (response.IsSuccessStatusCode)
-            {
-                var jsonResponse = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-                var sprintsResponse = JsonSerializer.Deserialize<SprintsResponse>(jsonResponse, options);
-                model.Sprints = sprintsResponse.Values;
-            }
+            model.Sprints = sprints;
 
             return View("LobbySprintPanel", model);
         }
