@@ -24,33 +24,40 @@ namespace TestProgram
 
         private void Vote_button(object sender, EventArgs e)
         {
-            SqlConnection con = CreateConnection();
-            con.Open();
-
-            String Ellen = vote_textBox.Text;
-            string query = "Select count(1) from users where username = @username;";
-            using (SqlCommand cmd = new SqlCommand(query, con))
+            if (username_label.Text == null)
             {
-                cmd.Parameters.AddWithValue("@username", Ellen);
+                MessageBox.Show("Jelentkezz be");
+            }
+            else
+            {
+                SqlConnection con = CreateConnection();
+                con.Open();
 
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                if (count > 0)
+                String Ellen = vote_textBox.Text;
+                string query = "Select count(1) from users where username = @username;";
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    MessageBox.Show("Már létezik");
-                }
-                else
-                {
-                    string insquery = "INSERT INTO users (username) values (@username);";
-                    using (SqlCommand insertCmd = new SqlCommand(insquery, con))
+                    cmd.Parameters.AddWithValue("@username", Ellen);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (count > 0)
                     {
-                        insertCmd.Parameters.AddWithValue("@username", Ellen);
-                        insertCmd.ExecuteNonQuery(); 
+                        MessageBox.Show("Már létezik");
+                    }
+                    else
+                    {
+                        string insquery = "INSERT INTO users (username) values (@username);";
+                        using (SqlCommand insertCmd = new SqlCommand(insquery, con))
+                        {
+                            insertCmd.Parameters.AddWithValue("@username", Ellen);
+                            insertCmd.ExecuteNonQuery();
+                        }
+
                     }
 
                 }
-                
+                con.Close();
             }
-            con.Close();  
         }
 
 
@@ -93,11 +100,11 @@ namespace TestProgram
             SqlConnection con = CreateConnection();
             con.Open();
 
-            //4 prepare sql query
+            
             string Query = "Select * from users";
             SqlCommand cmd = new SqlCommand(Query, con);
 
-            //5 execute query (c# sqlcommand class)
+            
             var reader = cmd.ExecuteReader();
 
             dataGridView1.Columns.Add("user_id", "User ID");
@@ -106,15 +113,13 @@ namespace TestProgram
             {
                 dataGridView1.Rows.Add(reader["user_id"], reader["username"]);
             }
-            //6 close connection (c# sqlconnection close)
+            
             con.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //UPDATE users SET username = 'new_username' WHERE id = 1;
-            //select id from users where username = 'label1.Text'
-
+            
             SqlConnection con = CreateConnection();
             con.Open();
             string username = username_label.Text;

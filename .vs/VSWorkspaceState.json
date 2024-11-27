@@ -5,8 +5,9 @@
     "\\PlanningProject\\Pages",
     "\\PlanningProject\\Pages\\Login",
     "\\TestProgram",
-    "\\TestProgram\\Adatbazis"
+    "\\TestProgram\\Adatbazis",
+    "\\TestProgram\\TestProgram"
   ],
-  "SelectedNode": "\\TestProgram\\Adatbazis\\ab_test_data.sql",
+  "SelectedNode": "\\TestProgram\\TestProgram\\TestProgram.sln",
   "PreviewInSolutionExplorer": false
 }

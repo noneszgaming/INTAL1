@@ -42,7 +42,7 @@
             // 
             // Login_button
             // 
-            Login_button.Location = new Point(143, 169);
+            Login_button.Location = new Point(160, 190);
             Login_button.Name = "Login_button";
             Login_button.Size = new Size(108, 27);
             Login_button.TabIndex = 0;
@@ -52,16 +52,16 @@
             // 
             // Login_textBox
             // 
-            Login_textBox.Location = new Point(101, 140);
+            Login_textBox.Location = new Point(118, 161);
             Login_textBox.Name = "Login_textBox";
             Login_textBox.Size = new Size(203, 23);
             Login_textBox.TabIndex = 1;
             // 
             // vote_textBox
             // 
-            vote_textBox.Location = new Point(376, 257);
+            vote_textBox.Location = new Point(356, 257);
             vote_textBox.Name = "vote_textBox";
-            vote_textBox.Size = new Size(40, 23);
+            vote_textBox.Size = new Size(85, 23);
             vote_textBox.TabIndex = 2;
             // 
             // vote_button
@@ -70,7 +70,7 @@
             vote_button.Name = "vote_button";
             vote_button.Size = new Size(131, 152);
             vote_button.TabIndex = 3;
-            vote_button.Text = "Vote";
+            vote_button.Text = "Insert";
             vote_button.UseVisualStyleBackColor = true;
             vote_button.Click += Vote_button;
             // 
