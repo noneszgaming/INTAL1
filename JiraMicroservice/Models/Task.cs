@@ -22,8 +22,8 @@ namespace PlanningProject.Models
 
     public class Fields
     {
-        [JsonProperty("customfield_10016")]
-        public double? StoryPoints { get; set; }
+        
+        public double? customfield_10016 { get; set; }
         public string Description { get; set; }
         public Sprint Sprint { get; set; }
 

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 
 namespace JiraMicroservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PutTask : ControllerBase
     {
         private readonly HttpClient _httpClient;
@@ -22,7 +24,7 @@ namespace JiraMicroservice.Controllers
             _httpClient.BaseAddress = new Uri(_baseUrl);
         }
 
-        [HttpGet("task/{issueKey}/{storyPoints}")]
+        [HttpPut("task/{issueKey}/{storyPoints}")]
         public async Task<IActionResult> UpdateStoryPoints(string issueKey, int storyPoints)
         {
             var field = Environment.GetEnvironmentVariable("jira_s_point_field");
