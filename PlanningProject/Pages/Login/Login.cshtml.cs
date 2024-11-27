@@ -33,16 +33,16 @@ namespace PlanningProject.Pages.Login
                 // Check if the username already exists
                 var existingUser = _context.Users.FirstOrDefault(u => u.Username == Username);
 
-                if (existingUser == null)
+                if (existingUser != null)
                 {
                     // Save the username in the database
-                    var user = new DbUser(Username);
-                    _context.Users.Add(user);
-                    _context.SaveChanges();
+                    //var user = new DbUser(Username);
+                    //_context.Users.Add(user);
+                    //_context.SaveChanges();
 
-                    int userId = user.User_id;
+                    //int userId = user.User_id;
 
-                    return RedirectToPage("/Lobby/Lobby", new { userId = user.User_id });
+                    return RedirectToPage("/Lobby/Lobby", new { userId = existingUser.User_id });
                 }
 
                 FeedbackMessage = "A felhasználónév már szerepel rendszerünkben, kérem válasszon újat.";

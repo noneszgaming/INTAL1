@@ -29,9 +29,6 @@ namespace PlanningProject.Pages.Poker
         [BindProperty(SupportsGet = true)]
         public int SprintId { get; set; }
 
-        [BindProperty(SupportsGet = true)]
-        public int UserId { get; set; }
-
         public List<DbTask> Tasks { get; set; } = [];
 
         public async Task OnGetAsync()
@@ -61,7 +58,7 @@ namespace PlanningProject.Pages.Poker
 
                 issuePoint ??= 0.0;
 
-                Tasks.Add(new DbTask { Task_id = IssueResponse.Issues[i].Key, User_id = UserId, Sprint_id = SprintId, Description = IssueResponse.Issues[i].Fields.Description, Est_point = (double)issuePoint });
+                Tasks.Add(new DbTask { Task_id = IssueResponse.Issues[i].Key, Sprint_id = SprintId, Description = IssueResponse.Issues[i].Fields.Description, Est_point = (double)issuePoint });
             }
 
             if (Tasks != null)
@@ -71,7 +68,7 @@ namespace PlanningProject.Pages.Poker
                     // Check if a sprint with the same SprintId already exists
                     var exists = await _context.Tasks.AnyAsync(db => db.Task_id == task.Task_id);
 
-                    var newDbTask = new DbTask { Task_id = task.Task_id, User_id = task.User_id, Sprint_id = task.Sprint_id, Description = task.Description, Est_point = task.Est_point };
+                    var newDbTask = new DbTask { Task_id = task.Task_id, Sprint_id = task.Sprint_id, Description = task.Description, Est_point = task.Est_point };
 
                     if (!exists)
                     {

@@ -73,13 +73,5 @@ namespace PlanningProject.Pages.Lobby
                 Sprints = [];
             }
         }
-
-        public IActionResult OnPost()
-        {
-            var dBSprint = new DbSprint { Sprint_id = 1 };
-
-            return RedirectToPage("/Poker/Poker", new { sprintId = dBSprint.Sprint_id, userId = HttpContext.Request.Query["userId"] });
-        }
     }
-
 }
