@@ -37,12 +37,32 @@ namespace PlanningProject.Pages.Lobby
 
                 if (Sprints != null)
                 {
+                    string startdatevar = "";
+                    string enddatevar = "";
                     foreach (var sprint in Sprints)
                     {
                         // Check if a sprint with the same SprintId already exists
                         var exists = await _context.Sprints.AnyAsync(db => db.Sprint_id == sprint.Id);
 
-                        var newDbSprint = new DbSprint { Sprint_id = sprint.Id, Description = sprint.Name };
+                        if (sprint.StartDate != null && sprint.EndDate != null)
+                        {
+                            string[] Start_date_trimmed_array = sprint.StartDate.Split("T");
+                            string Start_date_trimmed = Start_date_trimmed_array[0];
+
+                            string[] End_date_trimmed_array = sprint.EndDate.Split("T");
+                            string End_date_trimmed = End_date_trimmed_array[0];
+
+                            startdatevar = Start_date_trimmed;
+                            enddatevar = End_date_trimmed;
+
+                        }
+                        else
+                        {
+                            startdatevar = "Meg nem kezdodott el";
+                            enddatevar = "Meg nem fejezodott be";
+                        }
+
+                        var newDbSprint = new DbSprint { Sprint_id = sprint.Id, Description = sprint.Name, Start_date = startdatevar, End_date = enddatevar };
 
                         if (!exists)
                         {
