@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PlanningProject",
+    "\\PlanningProject\\Pages",
+    "\\PlanningProject\\Pages\\Login",
+    "\\TestProgram",
+    "\\TestProgram\\Adatbazis"
   ],
-  "SelectedNode": "\\PlanningProject.sln",
+  "SelectedNode": "\\TestProgram\\Adatbazis\\ab_test_data.sql",
   "PreviewInSolutionExplorer": false
 }

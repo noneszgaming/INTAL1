@@ -12,7 +12,7 @@ namespace PlanningProject.Pages.Login
         
         private SqlConnection CreateConnection()
         {
-            string connectionString = "Data Source=DESKTOP-1B66EN4\\SQLEXPRESS;Initial Catalog=planningpoker;Integrated Security=True;Trust Server Certificate=True";
+            string connectionString = "Data Source=134.255.65.10,1433;Initial Catalog=planningpoker;User ID=sa;Password=EZleszAjelszo!;";
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             return con;
