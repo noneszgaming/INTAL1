@@ -1,0 +1,15 @@
+@JiraMicroservice_HostAddress = http://localhost:5285
+
+### Get Sprints
+GET {{JiraMicroservice_HostAddress}}/api/Jira/sprints
+Accept: application/json
+
+### Get Tasks for Sprint
+GET {{JiraMicroservice_HostAddress}}/api/Jira/tasks/123
+Accept: application/json
+
+### Update Story Points
+GET {{JiraMicroservice_HostAddress}}/api/Jira/task/ISSUE-123/5
+Accept: application/json
+
+###
