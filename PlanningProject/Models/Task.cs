@@ -24,7 +24,6 @@ namespace PlanningProject.Models
 
     public class Fields
     {
-       
         public double? customfield_10016 { get; set; }
         public string Description { get; set; }
         public Sprint Sprint { get; set; }
