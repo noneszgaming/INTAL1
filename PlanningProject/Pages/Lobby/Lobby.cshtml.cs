@@ -37,8 +37,8 @@ namespace PlanningProject.Pages.Lobby
 
                 if (Sprints != null)
                 {
-                    string startdatevar = "Meg nem kezdodott el";
-                    string enddatevar = "Meg nem fejezodott be";
+                    string startdatevar = DateTime.MinValue.ToString("yyyy-MM-dd");
+                    string enddatevar = DateTime.MinValue.ToString("yyyy-MM-dd");
 
                     foreach (var sprint in Sprints)
                     {
@@ -48,11 +48,16 @@ namespace PlanningProject.Pages.Lobby
                         if (sprint.StartDate != null && sprint.EndDate != null)
                         {
                             string Start_date_trimmed = sprint.StartDate.Split('T')[0];
-
                             string End_date_trimmed = sprint.EndDate.Split('T')[0];
 
                             startdatevar = Start_date_trimmed;
                             enddatevar = End_date_trimmed;
+                        }
+
+                        else
+                        {
+                            startdatevar = DateTime.MinValue.ToString("yyyy-MM-dd");
+                            enddatevar = DateTime.MinValue.ToString("yyyy-MM-dd");
                         }
 
                         var newDbSprint = new DbSprint { Sprint_id = sprint.Id, Description = sprint.Name, Start_date = startdatevar, End_date = enddatevar };

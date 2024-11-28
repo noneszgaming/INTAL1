@@ -7,6 +7,13 @@
     <div class="w-full flex flex-col gap-4 overflow-y-auto">
         @foreach (var sprint in Model.Sprints)
         {
+
+            @if (sprint.Start_date == DateTime.MinValue.ToString("yyyy-MM-dd") && sprint.End_date == DateTime.MinValue.ToString("yyyy-MM-dd"))
+            {
+                sprint.Start_date = "Kezdodatum";
+                sprint.End_date = "Vegdatum";
+            }
+
             @await Component.InvokeAsync("SprintListElement", new
                 {
                     id = sprint.Sprint_id,
