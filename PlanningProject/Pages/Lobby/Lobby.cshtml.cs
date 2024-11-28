@@ -47,11 +47,9 @@ namespace PlanningProject.Pages.Lobby
 
                         if (sprint.StartDate != null && sprint.EndDate != null)
                         {
-                            string[] Start_date_trimmed_array = sprint.StartDate.Split('T');
-                            string Start_date_trimmed = Start_date_trimmed_array[0];
+                            string Start_date_trimmed = sprint.StartDate.Split('T')[0];
 
-                            string[] End_date_trimmed_array = sprint.EndDate.Split('T');
-                            string End_date_trimmed = End_date_trimmed_array[0];
+                            string End_date_trimmed = sprint.EndDate.Split('T')[0];
 
                             startdatevar = Start_date_trimmed;
                             enddatevar = End_date_trimmed;
