@@ -1,8 +1,9 @@
 @model PlanningProject.Pages.Shared.Components.SprintListElementViewModel
 
+
 <div class="w-[99%] h-[100px] min-h-[100px] flex items-center justify-between px-[40px] py-[8px] bg-cstm-lobby-gray border-[3px] border-cstm-lobby-limit-purple rounded-[20px]">
     <div class="flex items-center gap-4">
-        @await Component.InvokeAsync("StartBtn")
+        @await Component.InvokeAsync("StartBtn", new { sprintId = Model.Id })
         <h2 class="font-bold">@Model.Title</h2>
     </div>
     <div class="flex items-center gap-4">

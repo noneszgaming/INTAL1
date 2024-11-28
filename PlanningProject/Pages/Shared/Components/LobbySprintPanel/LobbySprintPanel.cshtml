@@ -1,66 +1,21 @@
+
+
 @model LobbySprintPanelViewModel
 
 <div class="w-[80%] h-[80%] flex flex-col items-center bg-cstm-lobby-sprintsbg rounded-[15px] p-4 border-[3px] border-cstm-purple">
     <h2 class="text-4xl font-bold text-cstm-purple mb-4">Sprints</h2>
     <div class="w-full flex flex-col gap-4 overflow-y-auto">
-        @await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 1, 
-            title = "Sprint 13", 
-            startDate = "2024. 11. 18.", 
-            endDate = "2024. 11. 20.", 
-            currentParticipants = 8, 
-            totalParticipants = 8 
-        })
-        @await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 2, 
-            title = "Sprint 23333", 
-            startDate = "2024. 12. 01.", 
-            endDate = "2024. 12. 15.", 
-            currentParticipants = 6, 
-            totalParticipants = 8 
-        })
-        @await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 2, 
-            title = "Sprint 2", 
-            startDate = "2024. 12. 01.", 
-            endDate = "2024. 12. 15.", 
-            currentParticipants = 6, 
-            totalParticipants = 8 
-        })@await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 2, 
-            title = "Sprint 2", 
-            startDate = "2024. 12. 01.", 
-            endDate = "2024. 12. 15.", 
-            currentParticipants = 6, 
-            totalParticipants = 8 
-        })@await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 2, 
-            title = "Sprint 2", 
-            startDate = "2024. 12. 01.", 
-            endDate = "2024. 12. 15.", 
-            currentParticipants = 6, 
-            totalParticipants = 8 
-        })@await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 2, 
-            title = "Sprint 2", 
-            startDate = "2024. 12. 01.", 
-            endDate = "2024. 12. 15.", 
-            currentParticipants = 6, 
-            totalParticipants = 8 
-        })@await Component.InvokeAsync("SprintListElement", new 
-        { 
-            id = 2, 
-            title = "Sprint 2", 
-            startDate = "2024. 12. 01.", 
-            endDate = "2024. 12. 15.", 
-            currentParticipants = 6, 
-            totalParticipants = 8 
-        })
+        @foreach (var sprint in Model.Sprints)
+        {
+            @await Component.InvokeAsync("SprintListElement", new
+                {
+                    id = sprint.Id,
+                    title = sprint.Name,
+                    startDate = sprint.StartDate,
+                    endDate = sprint.EndDate,
+                    currentParticipants = 5,
+                    totalParticipants = 2
+                })
+        }
     </div>
 </div>
