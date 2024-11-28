@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.Text.Json;
 using PlanningProject.Models;
+using System.Globalization;
 
 namespace PlanningProject.Pages.Shared.Components
 {
@@ -33,7 +34,17 @@ namespace PlanningProject.Pages.Shared.Components
                     PropertyNameCaseInsensitive = true
                 };
                 var sprintsResponse = JsonSerializer.Deserialize<SprintsResponse>(jsonResponse, options);
-                model.Sprints = sprintsResponse.Values;
+                model.Sprints = sprintsResponse.Values.Select(sprint => new Sprint
+                {
+                    Id = sprint.Id,
+                    Name = sprint.Name,
+                    StartDate = !string.IsNullOrEmpty(sprint.StartDate) ? DateTime.Parse(sprint.StartDate).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) : null,
+                    EndDate = !string.IsNullOrEmpty(sprint.EndDate) ? DateTime.Parse(sprint.EndDate).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) : null
+                }).ToList();
+            }
+            else
+            {
+                model.Sprints = new List<Sprint>();
             }
 
             return View("LobbySprintPanel", model);
