@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PlanningProject.Models;
 using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace JiraMicroservice.Controllers
 {
@@ -24,14 +26,31 @@ namespace JiraMicroservice.Controllers
             _httpClient.BaseAddress = new Uri(_baseUrl);
         }
 
+        public IssueResponse? IssueResponse { get; private set; }
+
         [HttpGet("{customValue}")]
         public async Task<IActionResult> Get(string customValue)
         {
             var response = await _httpClient.GetAsync($"{_baseUrl}agile/1.0/sprint/{customValue}/issue");
             if (response.IsSuccessStatusCode)
             {
-                var data = await response.Content.ReadAsStringAsync();
-                return Ok(data);
+
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+                var issueResponse = JsonSerializer.Deserialize<IssueResponse>(jsonString, options);
+
+                var simplifiedIssues = issueResponse.Issues.Select(issue => new
+                {
+                    Key = issue.Key,
+                    StoryPoints = issue.Fields.customfield_10016 ??=0,
+                    Description = issue.Fields.Description ??= " ",
+                    Sprint = issue.Fields.Sprint
+                }).ToList();
+
+                return Ok(simplifiedIssues);
             }
             return StatusCode((int)response.StatusCode);
         }

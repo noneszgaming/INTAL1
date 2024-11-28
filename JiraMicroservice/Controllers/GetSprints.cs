@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
+
+using PlanningProject.Models;
 using System.Net.Http.Headers;
+using System.Text.Json;
+
 
 namespace JiraMicroservice.Controllers {
     [Route("api/[controller]")]
@@ -21,12 +26,21 @@ namespace JiraMicroservice.Controllers {
             _httpClient.BaseAddress = new Uri(_baseUrl);
         }
 
+        public List<Sprint> Sprints { get; private set; }
+
         [HttpGet]
         public async Task<IActionResult> Get() {
             var response = await _httpClient.GetAsync($"{_baseUrl}agile/1.0/board/3/sprint");
             if (response.IsSuccessStatusCode) {
-                var data = await response.Content.ReadAsStringAsync();
-                return Ok(data);
+
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+                var sprintsResponse = JsonSerializer.Deserialize<SprintsResponse>(jsonResponse, options);
+
+                return Ok(sprintsResponse.Values);
             }
             return StatusCode((int)response.StatusCode);
         }
