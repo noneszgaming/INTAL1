@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\PlanningProject",
-    "\\PlanningProject\\Pages",
-    "\\PlanningProject\\Pages\\Lobby"
+    ""
   ],
-  "SelectedNode": "\\PlanningProject\\Pages\\Lobby\\Lobby.cshtml.cs",
+  "SelectedNode": "\\PlanningProject.sln",
   "PreviewInSolutionExplorer": false
 }

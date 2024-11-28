@@ -37,8 +37,8 @@ namespace PlanningProject.Pages.Lobby
 
                 if (Sprints != null)
                 {
-                    string startdatevar = "";
-                    string enddatevar = "";
+                    string startdatevar = "Meg nem kezdodott el";
+                    string enddatevar = "Meg nem fejezodott be";
 
                     foreach (var sprint in Sprints)
                     {
@@ -53,12 +53,6 @@ namespace PlanningProject.Pages.Lobby
 
                             startdatevar = Start_date_trimmed;
                             enddatevar = End_date_trimmed;
-
-                        }
-                        else
-                        {
-                            startdatevar = "Meg nem kezdodott el";
-                            enddatevar = "Meg nem fejezodott be";
                         }
 
                         var newDbSprint = new DbSprint { Sprint_id = sprint.Id, Description = sprint.Name, Start_date = startdatevar, End_date = enddatevar };
@@ -66,7 +60,6 @@ namespace PlanningProject.Pages.Lobby
                         if (!exists)
                         {
                             // If it doesn't exist, add it to the database
-
                             _context.Sprints.Add(newDbSprint);
                         }
                         else
