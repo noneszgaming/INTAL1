@@ -21,6 +21,7 @@ namespace PlanningProject.Pages.Login
 
         public string? FeedbackMessage { get; set; }
 
+        //Melyik page-re dobjuk át: IActionResult feladata
         public IActionResult OnPost()
         {
             if (!string.IsNullOrEmpty(Username))

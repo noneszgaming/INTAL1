@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\PlanningProject",
-    "\\PlanningProject\\Models"
+    "\\PlanningProject\\Pages",
+    "\\PlanningProject\\Pages\\Lobby"
   ],
-
-  "SelectedNode": "\\PlanningProject\\PlanningProject.sln",
-
+  "SelectedNode": "\\PlanningProject\\Pages\\Lobby\\Lobby.cshtml.cs",
   "PreviewInSolutionExplorer": false
 }
