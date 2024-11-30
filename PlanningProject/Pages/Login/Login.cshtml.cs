@@ -45,7 +45,7 @@ namespace PlanningProject.Pages.Login
                     return RedirectToPage("/Lobby/Lobby", new { userId = existingUser.User_id });
                 }
 
-                FeedbackMessage = "A felhasználónév már szerepel rendszerünkben, kérem válasszon újat.";
+                FeedbackMessage = "A felhasználónév nem szerepel az adatbázisban, kérem adjon meg egy létező felhasználónevet.";
             }
 
             return Page();
