@@ -1,5 +1,3 @@
-
-
 @model LobbySprintPanelViewModel
 
 <div class="w-[80%] h-[80%] flex flex-col items-center bg-cstm-lobby-sprintsbg rounded-[15px] p-4 border-[3px] border-cstm-purple">
@@ -7,6 +5,9 @@
     <div class="w-full flex flex-col gap-4 overflow-y-auto">
         @foreach (var sprint in Model.Sprints)
         {
+            @if (sprint.Start_date == DateTime.MinValue.ToString("yyyy-MM-dd")) sprint.Start_date = "Meg nem kezodott el";
+            @if (sprint.End_date == DateTime.MinValue.ToString("yyyy-MM-dd")) sprint.End_date = "Meg nem fejezodott be";
+
             @await Component.InvokeAsync("SprintListElement", new
                 {
                     id = sprint.Sprint_id,
